@@ -4,6 +4,7 @@ package org.example.desafiopicpay.infrastructure.http.controllers;
 import jakarta.validation.Valid;
 import org.example.desafiopicpay.core.entity.Funcionario;
 import org.example.desafiopicpay.infrastructure.http.request.RegisterRequest;
+import org.example.desafiopicpay.infrastructure.http.request.UpdateFuncionarioRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -55,13 +56,51 @@ public class FuncionarioController {
     }
 
     @PutMapping("/{id}")
-    public void updateFull(@PathVariable UUID id, @RequestBody Funcionario funcionario){
+    public ResponseEntity<Funcionario> updateFull(@PathVariable UUID id, @Valid @RequestBody RegisterRequest request){
+        Funcionario funcionario = null;
+        for (Funcionario f : lista) {
+            if (f.getId().equals(id)) {
+                funcionario = f;
+            }
+        }
 
+        if (funcionario == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        funcionario.setNome(request.nome());
+        funcionario.setEmail(request.email());
+        funcionario.setCargo(request.cargo());
+        funcionario.setTelefone(request.telefone() != null ? request.telefone() : "");
+        funcionario.setDepartamento(request.departamento() != null ? request.departamento() : "");
+        funcionario.setSalario(request.salario() != null ? request.salario() : 0.0);
+        funcionario.setCidade(request.cidade() != null ? request.cidade() : "");
+
+        return ResponseEntity.ok(funcionario);
     }
 
     @PatchMapping("/{id}")
-    public void updatePartial(@PathVariable UUID id, @RequestBody Funcionario funcionario){
+    public ResponseEntity<Funcionario> updatePartial(@PathVariable UUID id, @Valid @RequestBody UpdateFuncionarioRequest request){
+        Funcionario funcionario = null;
+        for (Funcionario f : lista) {
+            if (f.getId().equals(id)) {
+                funcionario = f;
+            }
+        }
 
+        if (funcionario == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        if (request.nome() != null) funcionario.setNome(request.nome());
+        if (request.email() != null) funcionario.setEmail(request.email());
+        if (request.cargo() != null) funcionario.setCargo(request.cargo());
+        if (request.telefone() != null) funcionario.setTelefone(request.telefone());
+        if (request.departamento() != null) funcionario.setDepartamento(request.departamento());
+        if (request.salario() != null) funcionario.setSalario(request.salario());
+        if (request.cidade() != null) funcionario.setCidade(request.cidade());
+
+        return ResponseEntity.ok(funcionario);
     }
 
     @DeleteMapping("/{id}")
