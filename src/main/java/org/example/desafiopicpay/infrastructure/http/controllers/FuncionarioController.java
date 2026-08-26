@@ -105,7 +105,12 @@ public class FuncionarioController {
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable UUID id){
-
+        Funcionario funcionario = null;
+        for (Funcionario f : lista) {
+            if (f.getId().equals(id)) {
+                lista.remove(f);
+            }
+        }
     }
 
 }
