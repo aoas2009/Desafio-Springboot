@@ -2,11 +2,13 @@ package org.example.desafiopicpay.core.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import org.example.desafiopicpay.core.valueobject.Status;
 
 import java.util.UUID;
 
 @Getter
+@Setter
 public class Funcionario {
     private UUID id;
     private String nome;
@@ -26,6 +28,15 @@ public class Funcionario {
         this.departamento = departamento;
         this.salario = salario;
         this.cidade = cidade;
+
+        this.id = UUID.randomUUID();
+        this.status = Status.EM_ANALISE;
+    }
+
+    public Funcionario(String nome, String email, String cargo) {
+        this.nome = nome;
+        this.email = email;
+        this.cargo = cargo;
 
         this.id = UUID.randomUUID();
         this.status = Status.EM_ANALISE;
