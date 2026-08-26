@@ -1,0 +1,161 @@
+{
+  "info": {
+    "_postman_id": "55dbfbd9-fac0-466e-a233-230388f3df45",
+    "name": "Atividade DEV",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55257342",
+    "_collection_link": "https://go.postman.co/collection/55257342-55dbfbd9-fac0-466e-a233-230388f3df45?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/funcionario/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "funcionario",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Artur\",\r\n    \"email\": \"aoasilva122009@hotmail.com\",\r\n    \"cargo\": \"Assistente de Desenvolvimento\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/funcionario",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "funcionario"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Artur\",\r\n    \"email\": \"aoasilva122009@hotmail.com\",\r\n    \"cargo\": \"Assistente de Desenvolvimento\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/funcionario",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "funcionario"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FindById",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/funcionario/2c2bf6d3-3a47-4dc9-b6cb-6bd8cf1df0d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "funcionario",
+            "2c2bf6d3-3a47-4dc9-b6cb-6bd8cf1df0d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateAll",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Davi\",\r\n    \"email\": \"aoasilva122009@hotmail.com\",\r\n    \"cargo\": \"Assistente de Desenvolvimento\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/funcionario/acb2635f-7ad4-4c7c-93f5-60c7fb0d78dd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "funcionario",
+            "acb2635f-7ad4-4c7c-93f5-60c7fb0d78dd"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdatePartial",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
