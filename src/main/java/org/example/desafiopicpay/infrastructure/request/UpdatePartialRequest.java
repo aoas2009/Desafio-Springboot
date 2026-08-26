@@ -1,4 +1,4 @@
-package org.example.desafiopicpay.infrastructure.http.request;
+package org.example.desafiopicpay.infrastructure.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

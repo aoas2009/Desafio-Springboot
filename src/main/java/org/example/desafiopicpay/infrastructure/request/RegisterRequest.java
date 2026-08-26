@@ -1,18 +1,18 @@
-package org.example.desafiopicpay.infrastructure.http.request;
+package org.example.desafiopicpay.infrastructure.request;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
-public record UpdateFullRequest(
-        @NotNull
+public record RegisterRequest(
+        @NotBlank(message = "Nome é obrigatório")
         String nome,
 
-        @NotNull
+        @NotBlank(message = "Email é obrigatório")
         @Email(message = "Email inválido")
         String email,
 
-        @NotNull
+        @NotBlank(message = "Cargo é obrigatório")
         String cargo,
 
         String telefone,

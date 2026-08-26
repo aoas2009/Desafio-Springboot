@@ -1,11 +1,11 @@
-package org.example.desafiopicpay.infrastructure.http.controllers;
+package org.example.desafiopicpay.infrastructure.controllers;
 
 
 import jakarta.validation.Valid;
 import org.example.desafiopicpay.core.entity.Funcionario;
-import org.example.desafiopicpay.infrastructure.http.request.RegisterRequest;
-import org.example.desafiopicpay.infrastructure.http.request.UpdateFullRequest;
-import org.example.desafiopicpay.infrastructure.http.request.UpdatePartialRequest;
+import org.example.desafiopicpay.infrastructure.request.RegisterRequest;
+import org.example.desafiopicpay.infrastructure.request.UpdateFullRequest;
+import org.example.desafiopicpay.infrastructure.request.UpdatePartialRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
