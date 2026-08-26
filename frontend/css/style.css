@@ -280,3 +280,20 @@ body {
     display: inline-block;
     border-radius: 4px;
 }
+
+
+.sidebar-button {
+    background-color: var(--color-sidebar-bg);
+    color: var(--color-surface);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+    width: 100%;
+}
+
+
+.icon {
+    
+}
