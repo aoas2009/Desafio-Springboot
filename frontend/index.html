@@ -14,12 +14,20 @@
                 <img src="assets/logo.png" width="200">
             </div>
             <button class="sidebar-button">
+                <p>Home</p>
+                <img src="assets/icons/home_icon.svg" alt="">
+            </button>
+            <button class="sidebar-button">
                 <p>Em analise</p>
                 <img src="assets/icons/document_icon.svg" alt="">
             </button>
             <button class="sidebar-button">
                 <p>Aprovados</p>
-                <img src="assets/icons/document_icon.svg" alt="">
+                <img src="assets/icons/check_icon.svg" alt="">
+            </button>
+            <button class="sidebar-button">
+                <p>Contratados</p>
+                <img src="assets/icons/double_check_icon.svg" alt="">
             </button>
             <button class="sidebar-button">
                 <p>Recusados</p>
@@ -30,50 +38,24 @@
         <div class="content">
 
             <header class="topbar">
-                <button class="icon-btn" type="button" aria-label="Abrir menu">
-                    <span class="placeholder-icon placeholder-icon--sm"></span>
-                </button>
 
                 <div class="topbar-title">
                     <h1>SISTEMA DE CONTRATO</h1>
                     <span>Painel de Funcionários</span>
                 </div>
-
-                <div class="topbar-actions">
-                    <button class="icon-btn" type="button" aria-label="Tema">
-                        <span class="placeholder-icon placeholder-icon--sm"></span>
-                    </button>
-                    <button class="icon-btn" type="button" aria-label="Tela cheia">
-                        <span class="placeholder-icon placeholder-icon--sm"></span>
-                    </button>
-
-                    <div class="user-info">
-                        <span class="user-name">Artur</span>
-                        <span class="user-role">Admin</span>
-                    </div>
-
-                    <div class="user-avatar placeholder-icon"></div>
-                </div>
             </header>
 
             <main class="main">
-
-                <nav class="breadcrumb">
-                    <span class="placeholder-icon placeholder-icon--sm"></span>
-                    <span>/</span>
-                    <span>Funcionários</span>
-                </nav>
-
                 <div class="toolbar">
                     <button class="btn btn-primary" type="button">
-                        <span class="placeholder-icon placeholder-icon--sm"></span>
+                        <span><img src="assets/icons/add_icon.svg" alt=""></span>
                         Adicionar
                     </button>
 
                     <div class="search-box">
                         <input type="text" placeholder="Buscar por nome">
                         <button class="search-btn" type="button" aria-label="Buscar">
-                            <span class="placeholder-icon placeholder-icon--sm"></span>
+                            <span><img src="assets/icons/search_icon_dark.svg"></span>
                         </button>
                     </div>
                 </div>
@@ -82,64 +64,18 @@
 
                     <article class="employee-row">
                         <div class="employee-info">
-                            <div class="employee-avatar placeholder-icon"></div>
+                            <img  class="employee-avatar placeholder-icon" src="assets/user_placeholder.jpg" alt="">
                             <div class="employee-text">
                                 <span class="employee-name">Artur Silva</span>
                                 <span class="employee-role">Assistente de Desenvolvimento</span>
                             </div>
                         </div>
                         <div class="employee-actions">
-                            <button class="btn btn-reject" type="button">RECUSAR</button>
-                            <button class="btn btn-approve" type="button">APROVAR</button>
-                            <button class="btn btn-edit" type="button">EDITAR</button>
+                            <button class="btn btn-reject" type="button"><img src="assets/icons/close_icon.svg"></button>
+                            <button class="btn btn-approve" type="button"><img src="assets/icons/check_icon.svg"></button>
+                            <button class="btn btn-edit" type="button"><img src="assets/icons/info_icon.svg" alt=""></button>
                         </div>
                     </article>
-
-                    <article class="employee-row">
-                        <div class="employee-info">
-                            <div class="employee-avatar placeholder-icon"></div>
-                            <div class="employee-text">
-                                <span class="employee-name">Davi Souza</span>
-                                <span class="employee-role">Desenvolvedor Backend</span>
-                            </div>
-                        </div>
-                        <div class="employee-actions">
-                            <button class="btn btn-reject" type="button">RECUSAR</button>
-                            <button class="btn btn-approve" type="button">APROVAR</button>
-                            <button class="btn btn-edit" type="button">EDITAR</button>
-                        </div>
-                    </article>
-
-                    <article class="employee-row">
-                        <div class="employee-info">
-                            <div class="employee-avatar placeholder-icon"></div>
-                            <div class="employee-text">
-                                <span class="employee-name">Maria Oliveira</span>
-                                <span class="employee-role">Analista de QA</span>
-                            </div>
-                        </div>
-                        <div class="employee-actions">
-                            <button class="btn btn-reject" type="button">RECUSAR</button>
-                            <button class="btn btn-approve" type="button">APROVAR</button>
-                            <button class="btn btn-edit" type="button">EDITAR</button>
-                        </div>
-                    </article>
-
-                    <article class="employee-row">
-                        <div class="employee-info">
-                            <div class="employee-avatar placeholder-icon"></div>
-                            <div class="employee-text">
-                                <span class="employee-name">João Pereira</span>
-                                <span class="employee-role">Desenvolvedor Frontend</span>
-                            </div>
-                        </div>
-                        <div class="employee-actions">
-                            <button class="btn btn-reject" type="button">RECUSAR</button>
-                            <button class="btn btn-approve" type="button">APROVAR</button>
-                            <button class="btn btn-edit" type="button">EDITAR</button>
-                        </div>
-                    </article>
-
                 </section>
 
             </main>

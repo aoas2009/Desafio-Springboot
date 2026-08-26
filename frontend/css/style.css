@@ -291,9 +291,10 @@ body {
 
     padding: 15px;
     width: 100%;
+    border-color: var(--color-sidebar-border);
 }
 
 
-.icon {
-    
+.sidebar-button::hover {
+    background-color: var(--color-bg);
 }
