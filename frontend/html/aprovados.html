@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Funcionários</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Aprovados - Gestão de Funcionários</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="layout">
 
         <aside class="sidebar">
             <div class="sidebar-logo">
-                <img src="assets/logo.png" width="200">
+                <img src="../assets/logo.png" width="200">
             </div>
-            <a class="sidebar-button active" href="index.html">
+            <a class="sidebar-button" href="../index.html">
                 <p>Home</p>
-                <img src="assets/icons/home_icon.svg" alt="">
+                <img src="../assets/icons/home_icon.svg" alt="">
             </a>
-            <a class="sidebar-button" href="html/em-analise.html">
+            <a class="sidebar-button" href="em-analise.html">
                 <p>Em analise</p>
-                <img src="assets/icons/document_icon.svg" alt="">
+                <img src="../assets/icons/document_icon.svg" alt="">
             </a>
-            <a class="sidebar-button" href="html/aprovados.html">
+            <a class="sidebar-button active" href="aprovados.html">
                 <p>Aprovados</p>
-                <img src="assets/icons/check_icon.svg" alt="">
+                <img src="../assets/icons/check_icon.svg" alt="">
             </a>
-            <a class="sidebar-button" href="html/contratados.html">
+            <a class="sidebar-button" href="contratados.html">
                 <p>Contratados</p>
-                <img src="assets/icons/double_check_icon.svg" alt="">
+                <img src="../assets/icons/double_check_icon.svg" alt="">
             </a>
-            <a class="sidebar-button" href="html/recusados.html">
+            <a class="sidebar-button" href="recusados.html">
                 <p>Recusados</p>
-                <img src="assets/icons/close_icon.svg" alt="">
+                <img src="../assets/icons/close_icon.svg" alt="">
             </a>
         </aside>
 
@@ -46,18 +46,18 @@
             </header>
 
             <main class="main">
-                <h1 class="page-title page-title--home">Home</h1>
+                <h1 class="page-title page-title--approved">Aprovados</h1>
 
                 <div class="toolbar">
                     <button class="btn btn-primary" type="button">
-                        <span><img src="assets/icons/add_icon.svg" alt=""></span>
+                        <span><img src="../assets/icons/add_icon.svg" alt=""></span>
                         Adicionar
                     </button>
 
                     <div class="search-box">
                         <input type="text" placeholder="Buscar por nome">
                         <button class="search-btn" type="button" aria-label="Buscar">
-                            <span><img src="assets/icons/search_icon_dark.svg"></span>
+                            <span><img src="../assets/icons/search_icon_dark.svg"></span>
                         </button>
                     </div>
                 </div>
@@ -66,16 +66,16 @@
 
                     <article class="employee-row">
                         <div class="employee-info">
-                            <img  class="employee-avatar placeholder-icon" src="assets/user_placeholder.jpg" alt="">
+                            <img  class="employee-avatar placeholder-icon" src="../assets/user_placeholder.jpg" alt="">
                             <div class="employee-text">
                                 <span class="employee-name">Artur Silva</span>
                                 <span class="employee-role">Assistente de Desenvolvimento</span>
                             </div>
                         </div>
                         <div class="employee-actions">
-                            <button class="btn btn-reject" type="button"><img src="assets/icons/close_icon.svg"></button>
-                            <button class="btn btn-approve" type="button"><img src="assets/icons/check_icon.svg"></button>
-                            <button class="btn btn-edit" type="button"><img src="assets/icons/info_icon.svg" alt=""></button>
+                            <button class="btn btn-reject" type="button"><img src="../assets/icons/close_icon.svg"></button>
+                            <button class="btn btn-approve" type="button"><img src="../assets/icons/double_check_icon.svg"></button>
+                            <button class="btn btn-edit" type="button"><img src="../assets/icons/info_icon.svg" alt=""></button>
                         </div>
                     </article>
                 </section>

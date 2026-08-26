@@ -9,7 +9,8 @@
     --color-text: #333333;
     --color-text-muted: #8a8f98;
     --color-danger: #f45b69;
-    --color-info: #4a90d9;
+    --color-info: #4a91d9;
+    --color-yellow: #cfd94a;
 }
 
 * {
@@ -130,6 +131,28 @@ body {
 .main {
     flex: 1;
     padding: 24px 32px;
+}
+
+.page-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.page-title--home {
+    color: var(--color-text);
+}
+
+.page-title--pending {
+    color: var(--color-info);
+}
+
+.page-title--approved,
+.page-title--hired {
+    color: var(--color-primary);
+}
+
+.page-title--rejected {
+    color: var(--color-danger);
 }
 
 .breadcrumb {
@@ -268,6 +291,11 @@ body {
     color: #ffffff;
 }
 
+.btn-undo {
+    background-color: var(--color-yellow);
+    color: #ffffff
+}
+
 /* Generic placeholder (icons, logo, avatars) */
 .placeholder-icon {
     background-color: #d9dde1;
@@ -285,6 +313,7 @@ body {
 .sidebar-button {
     background-color: var(--color-sidebar-bg);
     color: var(--color-surface);
+    text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -295,6 +324,11 @@ body {
 }
 
 
-.sidebar-button::hover {
+.sidebar-button:hover {
     background-color: var(--color-bg);
+}
+
+.sidebar-button.active {
+    background-color: var(--color-sidebar-border);
+    border-left: 3px solid var(--color-primary);
 }
