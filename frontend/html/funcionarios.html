@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recusados - Gestão de Funcionários</title>
+    <title>Todos Candidatos - Gestão de Funcionários</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
                 <p>Home</p>
                 <img src="../assets/icons/home_icon.svg" alt="">
             </a>
-            <a class="sidebar-button" href="funcionarios.html">
+            <a class="sidebar-button active" href="funcionarios.html">
                 <p>Todos Candidatos</p>
                 <img src="../assets/icons/all_workers.svg" alt="">
             </a>
@@ -33,7 +33,7 @@
                 <p>Contratados</p>
                 <img src="../assets/icons/double_check_icon.svg" alt="">
             </a>
-            <a class="sidebar-button active" href="recusados.html">
+            <a class="sidebar-button" href="recusados.html">
                 <p>Recusados</p>
                 <img src="../assets/icons/close_icon.svg" alt="">
             </a>
@@ -50,7 +50,7 @@
             </header>
 
             <main class="main">
-                <h1 class="page-title page-title--rejected">Recusados</h1>
+                <h1 class="page-title page-title--all">Todos Candidatos</h1>
 
                 <div class="toolbar">
                     <button class="btn btn-primary" type="button">
@@ -74,10 +74,52 @@
                             <div class="employee-text">
                                 <span class="employee-name">Artur Silva</span>
                                 <span class="employee-role">Assistente de Desenvolvimento</span>
+                                <span class="employee-status status-pending">Em análise</span>
                             </div>
                         </div>
                         <div class="employee-actions">
-                            <button class="btn btn-undo" type="button"><img src="../assets/icons/undo_icon.svg"></button>
+                            <button class="btn btn-edit" type="button"><img src="../assets/icons/info_icon.svg" alt=""></button>
+                        </div>
+                    </article>
+
+                    <article class="employee-row">
+                        <div class="employee-info">
+                            <img  class="employee-avatar placeholder-icon" src="../assets/user_placeholder.jpg" alt="">
+                            <div class="employee-text">
+                                <span class="employee-name">Artur Silva</span>
+                                <span class="employee-role">Assistente de Desenvolvimento</span>
+                                <span class="employee-status status-approved">Aprovado</span>
+                            </div>
+                        </div>
+                        <div class="employee-actions">
+                            <button class="btn btn-edit" type="button"><img src="../assets/icons/info_icon.svg" alt=""></button>
+                        </div>
+                    </article>
+
+                    <article class="employee-row">
+                        <div class="employee-info">
+                            <img  class="employee-avatar placeholder-icon" src="../assets/user_placeholder.jpg" alt="">
+                            <div class="employee-text">
+                                <span class="employee-name">Artur Silva</span>
+                                <span class="employee-role">Assistente de Desenvolvimento</span>
+                                <span class="employee-status status-hired">Contratado</span>
+                            </div>
+                        </div>
+                        <div class="employee-actions">
+                            <button class="btn btn-edit" type="button"><img src="../assets/icons/info_icon.svg" alt=""></button>
+                        </div>
+                    </article>
+
+                    <article class="employee-row">
+                        <div class="employee-info">
+                            <img  class="employee-avatar placeholder-icon" src="../assets/user_placeholder.jpg" alt="">
+                            <div class="employee-text">
+                                <span class="employee-name">Artur Silva</span>
+                                <span class="employee-role">Assistente de Desenvolvimento</span>
+                                <span class="employee-status status-rejected">Recusado</span>
+                            </div>
+                        </div>
+                        <div class="employee-actions">
                             <button class="btn btn-edit" type="button"><img src="../assets/icons/info_icon.svg" alt=""></button>
                         </div>
                     </article>
