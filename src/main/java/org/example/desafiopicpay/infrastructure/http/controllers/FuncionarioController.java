@@ -4,7 +4,8 @@ package org.example.desafiopicpay.infrastructure.http.controllers;
 import jakarta.validation.Valid;
 import org.example.desafiopicpay.core.entity.Funcionario;
 import org.example.desafiopicpay.infrastructure.http.request.RegisterRequest;
-import org.example.desafiopicpay.infrastructure.http.request.UpdateFuncionarioRequest;
+import org.example.desafiopicpay.infrastructure.http.request.UpdateFullRequest;
+import org.example.desafiopicpay.infrastructure.http.request.UpdatePartialRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +57,7 @@ public class FuncionarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Funcionario> updateFull(@PathVariable UUID id, @Valid @RequestBody RegisterRequest request){
+    public ResponseEntity<Funcionario> updateFull(@PathVariable UUID id, @Valid @RequestBody UpdateFullRequest request){
         Funcionario funcionario = null;
         for (Funcionario f : lista) {
             if (f.getId().equals(id)) {
@@ -80,7 +81,7 @@ public class FuncionarioController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Funcionario> updatePartial(@PathVariable UUID id, @Valid @RequestBody UpdateFuncionarioRequest request){
+    public ResponseEntity<Funcionario> updatePartial(@PathVariable UUID id, @Valid @RequestBody UpdatePartialRequest request){
         Funcionario funcionario = null;
         for (Funcionario f : lista) {
             if (f.getId().equals(id)) {
@@ -106,11 +107,7 @@ public class FuncionarioController {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable UUID id){
         Funcionario funcionario = null;
-        for (Funcionario f : lista) {
-            if (f.getId().equals(id)) {
-                lista.remove(f);
-            }
-        }
+        lista.removeIf(f -> f.getId().equals(id));
     }
 
 }

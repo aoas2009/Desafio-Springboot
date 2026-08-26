@@ -1,12 +1,13 @@
 package org.example.desafiopicpay.infrastructure.http.request;
 
-import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import org.jspecify.annotations.NonNull;
 
-public record UpdateFuncionarioRequest(
+public record UpdatePartialRequest(
         String nome,
 
-        @Email(message = "Email inválido")
+        @NotNull
         String email,
 
         String cargo,
