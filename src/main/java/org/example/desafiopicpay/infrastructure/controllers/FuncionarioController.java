@@ -131,6 +131,25 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionario);
     }
 
+    @GetMapping("/{id}/contratar")
+    public ResponseEntity<Funcionario> contratar(@PathVariable UUID id){
+        Funcionario funcionario = null;
+        for (Funcionario f : lista) {
+            if (f.getId().equals(id)) {
+                funcionario = f;
+            }
+        }
+
+        if (funcionario == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        funcionario.contratar();
+
+        return ResponseEntity.ok(funcionario);
+    }
+
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable UUID id){
         lista.removeIf(f -> f.getId().equals(id));

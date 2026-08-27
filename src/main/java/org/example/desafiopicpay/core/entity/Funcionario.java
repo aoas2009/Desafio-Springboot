@@ -48,11 +48,15 @@ public class Funcionario {
     }
 
     public void aceitar() {
-        this.status = Status.APROVADO;
+        if(this.status == Status.EM_ANALISE) {
+            this.status = Status.APROVADO;
+        }
     }
 
     public void contratar() {
-        this.status = Status.CONTRATADO;
+        if(this.status == Status.APROVADO) {
+            this.status = Status.CONTRATADO;
+        }
     }
 
 
