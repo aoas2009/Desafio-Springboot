@@ -73,6 +73,18 @@ function criarEmployeeRow(funcionario, actions, mostrarStatus) {
   return article;
 }
 
+function criarBuscaVazia(termo) {
+  const container = document.createElement('div');
+  container.className = 'empty-state';
+
+  const texto = document.createElement('p');
+  texto.className = 'empty-state-text';
+  texto.textContent = `Nenhum candidato encontrado para "${termo}".`;
+  container.appendChild(texto);
+
+  return container;
+}
+
 function criarEmptyState() {
   const naTelaDeTodosCandidatos = window.location.pathname.endsWith('funcionarios.html');
 
@@ -109,23 +121,76 @@ async function chamarAcao(id, endpoint) {
   }
 }
 
+let ultimaListaFuncionarios = [];
+let termoBuscaAtual = '';
+
+function renderizarFuncionarios(funcionarios) {
+  const section = document.querySelector('.employee-list');
+  if (!section) return;
+
+  const actions = (section.dataset.actions || 'edit').split(',').map((a) => a.trim());
+  const mostrarStatus = section.dataset.showStatus === 'true';
+
+  section.innerHTML = '';
+
+  if (funcionarios.length === 0) {
+    section.appendChild(termoBuscaAtual ? criarBuscaVazia(termoBuscaAtual) : criarEmptyState());
+    return;
+  }
+
+  funcionarios.forEach((funcionario) => {
+    section.appendChild(criarEmployeeRow(funcionario, actions, mostrarStatus));
+  });
+}
+
+function aplicarBusca(termo) {
+  termoBuscaAtual = (termo || '').trim();
+
+  if (!termoBuscaAtual) {
+    renderizarFuncionarios(ultimaListaFuncionarios);
+    return;
+  }
+
+  const termoNormalizado = termoBuscaAtual.toLowerCase();
+  const filtrados = ultimaListaFuncionarios.filter((funcionario) =>
+    (funcionario.nome || '').toLowerCase().includes(termoNormalizado)
+  );
+  renderizarFuncionarios(filtrados);
+}
+
+function configurarBusca() {
+  const searchBox = document.querySelector('.search-box');
+  if (!searchBox) return;
+
+  const input = searchBox.querySelector('input');
+  const botao = searchBox.querySelector('.search-btn');
+  if (!input) return;
+
+  input.addEventListener('input', () => aplicarBusca(input.value));
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      aplicarBusca(input.value);
+    }
+  });
+  if (botao) {
+    botao.addEventListener('click', () => aplicarBusca(input.value));
+  }
+}
+
 async function carregarFuncionarios() {
   const section = document.querySelector('.employee-list');
   if (!section) return;
 
   const status = section.dataset.status || '';
-  const actions = (section.dataset.actions || 'edit').split(',').map((a) => a.trim());
-  const mostrarStatus = section.dataset.showStatus === 'true';
-
   const url = status ? `${API_BASE}?status=${status}` : API_BASE;
 
   try {
     const response = await fetch(url);
 
-    section.innerHTML = '';
-
     if (response.status === 204) {
-      section.appendChild(criarEmptyState());
+      ultimaListaFuncionarios = [];
+      renderizarFuncionarios([]);
       return;
     }
 
@@ -133,10 +198,8 @@ async function carregarFuncionarios() {
       throw new Error(`Falha ao buscar funcionários (status ${response.status})`);
     }
 
-    const funcionarios = await response.json();
-    funcionarios.forEach((funcionario) => {
-      section.appendChild(criarEmployeeRow(funcionario, actions, mostrarStatus));
-    });
+    ultimaListaFuncionarios = await response.json();
+    aplicarBusca(termoBuscaAtual);
   } catch (error) {
     console.error('Erro:', error);
     section.innerHTML = '<p class="employee-list-empty">Erro ao carregar funcionários.</p>';
@@ -144,4 +207,5 @@ async function carregarFuncionarios() {
 }
 
 window.carregarFuncionarios = carregarFuncionarios;
+configurarBusca();
 carregarFuncionarios();
