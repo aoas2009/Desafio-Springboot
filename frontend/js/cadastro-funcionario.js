@@ -78,6 +78,14 @@
       abrirBtn.addEventListener('click', abrir);
     }
 
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('cadastrar') === '1') {
+      abrir();
+      params.delete('cadastrar');
+      const query = params.toString();
+      window.history.replaceState({}, '', window.location.pathname + (query ? `?${query}` : ''));
+    }
+
     document.getElementById('cadastro-close').addEventListener('click', fechar);
     document.getElementById('cadastro-cancelar').addEventListener('click', fechar);
     overlay.addEventListener('click', (event) => {

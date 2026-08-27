@@ -45,47 +45,54 @@
 
                 <div class="topbar-title">
                     <h1>SISTEMA DE CONTRATO</h1>
-                    <span>Painel de Funcionários</span>
+                    <span>Painel de Candidatos</span>
                 </div>
             </header>
 
             <main class="main">
                 <h1 class="page-title page-title--home">Home</h1>
 
-                <div class="toolbar">
-                    <button class="btn btn-primary" type="button">
-                        <span><img src="assets/icons/add_icon.svg" alt=""></span>
-                        Adicionar
-                    </button>
-
-                    <div class="search-box">
-                        <input type="text" placeholder="Buscar por nome">
-                        <button class="search-btn" type="button" aria-label="Buscar">
-                            <span><img src="assets/icons/search_icon_dark.svg"></span>
-                        </button>
+                <section class="hero-card">
+                    <div class="hero-card-text">
+                        <h2>Sistema de Contrato</h2>
+                        <p>Acompanhe todo o processo seletivo em um só lugar: veja candidatos em análise, aprove ou recuse candidaturas e efetive contratações com poucos cliques.</p>
                     </div>
-                </div>
-
-                <section class="employee-list">
-
-                    <article class="employee-row">
-                        <div class="employee-info">
-                            <img  class="employee-avatar placeholder-icon" src="assets/user_placeholder.jpg" alt="">
-                            <div class="employee-text">
-                                <span class="employee-name">Artur Silva</span>
-                                <span class="employee-role">Assistente de Desenvolvimento</span>
-                            </div>
-                        </div>
-                        <div class="employee-actions">
-                            <button class="btn btn-reject" type="button"><img src="assets/icons/close_icon.svg"></button>
-                            <button class="btn btn-approve" type="button"><img src="assets/icons/check_icon.svg"></button>
-                            <button class="btn btn-edit" type="button"><img src="assets/icons/info_icon.svg" alt=""></button>
-                        </div>
-                    </article>
+                    <img class="hero-card-icon" src="assets/icons/all_workers.svg" alt="">
                 </section>
+
+                <section class="dashboard-cards">
+                    <a class="dashboard-card" href="html/funcionarios.html">
+                        <span class="dashboard-card-value" id="card-total">--</span>
+                        <span class="dashboard-card-label">Total de Candidatos</span>
+                    </a>
+                    <a class="dashboard-card dashboard-card--pending" href="html/em-analise.html">
+                        <span class="dashboard-card-value" id="card-em-analise">--</span>
+                        <span class="dashboard-card-label">Em Análise</span>
+                    </a>
+                    <a class="dashboard-card dashboard-card--approved" href="html/aprovados.html">
+                        <span class="dashboard-card-value" id="card-aprovados">--</span>
+                        <span class="dashboard-card-label">Aprovados</span>
+                    </a>
+                    <a class="dashboard-card dashboard-card--hired" href="html/contratados.html">
+                        <span class="dashboard-card-value" id="card-contratados">--</span>
+                        <span class="dashboard-card-label">Contratados</span>
+                    </a>
+                    <a class="dashboard-card dashboard-card--rejected" href="html/recusados.html">
+                        <span class="dashboard-card-value" id="card-recusados">--</span>
+                        <span class="dashboard-card-label">Recusados</span>
+                    </a>
+                </section>
+
+                <div class="dashboard-actions">
+                    <a class="btn btn-primary" href="html/funcionarios.html?cadastrar=1">
+                        <span><img src="assets/icons/add_icon.svg" alt=""></span>
+                        Cadastrar Candidato
+                    </a>
+                </div>
 
             </main>
         </div>
     </div>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
