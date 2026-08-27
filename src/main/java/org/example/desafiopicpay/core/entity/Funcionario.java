@@ -59,5 +59,11 @@ public class Funcionario {
         }
     }
 
+    public void recuperar() {
+        if(this.status == Status.REPROVADO) {
+            this.status = Status.EM_ANALISE;
+        }
+    }
+
 
 }
