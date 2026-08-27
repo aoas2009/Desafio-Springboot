@@ -54,6 +54,10 @@
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-edit" id="detalhes-editar-btn">
+            <span><img src="../assets/icons/document_icon.svg" alt=""></span>
+            Editar
+          </button>
           <button type="button" class="btn btn-secondary" id="detalhes-fechar-btn">Fechar</button>
         </div>
       </div>
@@ -83,6 +87,8 @@
     const overlay = document.getElementById('detalhes-overlay');
     const modal = overlay.querySelector('.modal');
 
+    let funcionarioAtual = null;
+
     const preencher = (campo, valor) => {
       modal.querySelector(`[data-field="${campo}"]`).textContent = valor;
     };
@@ -93,6 +99,11 @@
 
     document.getElementById('detalhes-close').addEventListener('click', fechar);
     document.getElementById('detalhes-fechar-btn').addEventListener('click', fechar);
+    document.getElementById('detalhes-editar-btn').addEventListener('click', () => {
+      if (!funcionarioAtual || typeof window.mostrarEdicaoFuncionario !== 'function') return;
+      fechar();
+      window.mostrarEdicaoFuncionario(funcionarioAtual);
+    });
     overlay.addEventListener('click', (event) => {
       if (event.target === overlay) fechar();
     });
@@ -101,6 +112,7 @@
     });
 
     window.mostrarDetalhesFuncionario = (funcionario) => {
+      funcionarioAtual = funcionario;
       preencher('nome', naoInformadoSeVazio(funcionario.nome));
       preencher('email', naoInformadoSeVazio(funcionario.email));
       preencher('status', STATUS_TEXTO[funcionario.status] ?? funcionario.status);
