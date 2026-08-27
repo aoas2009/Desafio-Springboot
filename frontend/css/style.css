@@ -321,6 +321,32 @@ body {
     color: #ffffff
 }
 
+/* Empty state */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 56px 24px;
+    text-align: center;
+}
+
+.empty-state-text {
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.btn-goto {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-goto:hover {
+    background-color: var(--color-primary-dark);
+}
+
 /* Generic placeholder (icons, logo, avatars) */
 .placeholder-icon {
     background-color: #d9dde1;

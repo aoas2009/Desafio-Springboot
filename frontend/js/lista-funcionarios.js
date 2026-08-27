@@ -73,6 +73,30 @@ function criarEmployeeRow(funcionario, actions, mostrarStatus) {
   return article;
 }
 
+function criarEmptyState() {
+  const naTelaDeTodosCandidatos = window.location.pathname.endsWith('funcionarios.html');
+
+  const container = document.createElement('div');
+  container.className = 'empty-state';
+
+  const texto = document.createElement('p');
+  texto.className = 'empty-state-text';
+  texto.textContent = naTelaDeTodosCandidatos
+    ? 'Nenhum candidato cadastrado ainda.'
+    : 'Nenhum candidato encontrado.';
+  container.appendChild(texto);
+
+  if (!naTelaDeTodosCandidatos) {
+    const link = document.createElement('a');
+    link.className = 'btn btn-goto';
+    link.href = 'funcionarios.html';
+    link.innerHTML = '<span><img src="../assets/icons/all_workers.svg" alt=""></span>Ir para Todos Candidatos';
+    container.appendChild(link);
+  }
+
+  return container;
+}
+
 async function chamarAcao(id, endpoint) {
   try {
     const response = await fetch(`${API_BASE}/${id}/${endpoint}`);
@@ -101,7 +125,7 @@ async function carregarFuncionarios() {
     section.innerHTML = '';
 
     if (response.status === 204) {
-      section.innerHTML = '<p class="employee-list-empty">Nenhum funcionário encontrado.</p>';
+      section.appendChild(criarEmptyState());
       return;
     }
 
