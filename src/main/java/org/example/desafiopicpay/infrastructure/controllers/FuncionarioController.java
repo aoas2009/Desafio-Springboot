@@ -149,6 +149,23 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionario);
     }
 
+    @GetMapping("/{id}/recusar")
+    public ResponseEntity<Funcionario> recusar(@PathVariable UUID id){
+        Funcionario funcionario = null;
+        for (Funcionario f : lista) {
+            if (f.getId().equals(id)) {
+                funcionario = f;
+            }
+        }
+
+        if (funcionario == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        funcionario.negar();
+
+        return ResponseEntity.ok(funcionario);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable UUID id){
