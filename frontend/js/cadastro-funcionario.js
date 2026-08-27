@@ -9,7 +9,7 @@
         <form id="cadastro-form">
           <div class="modal-body">
             <div class="modal-photo placeholder-icon">
-              <img src="../assets/icons/all_workers.svg" alt="">
+              <img src="../assets/user_placeholder.jpg" width="200">
             </div>
             <div class="modal-form">
               <div class="form-field">
