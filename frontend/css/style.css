@@ -457,6 +457,14 @@ body {
     opacity: 0.5;
 }
 
+.modal-photo .detail-avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 1;
+}
+
 .modal-form {
     flex: 1;
     display: flex;
@@ -498,8 +506,33 @@ body {
     gap: 14px;
 }
 
-.form-row .form-field {
+.form-row .form-field,
+.form-row .detail-field {
     flex: 1;
+}
+
+.detail-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.detail-value {
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+.detail-value--id {
+    font-family: "Consolas", monospace;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    word-break: break-all;
 }
 
 .modal-footer {

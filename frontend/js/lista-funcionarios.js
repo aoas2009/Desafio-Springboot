@@ -31,7 +31,7 @@ const ACTION_BUILDERS = {
   edit: (funcionario) => criarBotaoAcao({
     classe: 'btn-edit',
     icone: '../assets/icons/info_icon.svg',
-    onClick: () => window.location.href = `funcionario.html?id=${funcionario.id}`,
+    onClick: () => window.mostrarDetalhesFuncionario(funcionario),
   }),
 };
 
