@@ -119,4 +119,5 @@ async function carregarFuncionarios() {
   }
 }
 
+window.carregarFuncionarios = carregarFuncionarios;
 carregarFuncionarios();
