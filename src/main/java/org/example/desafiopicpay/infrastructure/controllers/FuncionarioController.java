@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.example.desafiopicpay.core.entity.Funcionario;
+import org.example.desafiopicpay.core.valueobject.Status;
 import org.example.desafiopicpay.infrastructure.request.RegisterRequest;
 import org.example.desafiopicpay.infrastructure.request.UpdateFullRequest;
 import org.example.desafiopicpay.infrastructure.request.UpdatePartialRequest;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,11 +50,22 @@ public class FuncionarioController {
     }
 
     @GetMapping
-    public ResponseEntity<ArrayList<Funcionario>> list(){
-        if (lista.isEmpty()) {
+    public ResponseEntity<ArrayList<Funcionario>> list(@RequestParam(required = false) String status){
+        ArrayList<Funcionario> resultado = lista;
+
+        if (status != null) {
+            resultado = new ArrayList<>();
+            for (Funcionario f : lista) {
+                if (f.getStatus() == Status.valueOf(status)) {
+                    resultado.add(f);
+                }
+            }
+        }
+
+        if (resultado.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
-        return ResponseEntity.ok(lista);
+        return ResponseEntity.ok(resultado);
     }
 
     @GetMapping("/{id}")
