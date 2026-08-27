@@ -1,17 +1,26 @@
 package org.example.desafiopicpay.infrastructure.controllers;
 
 
-import jakarta.validation.Valid;
+import java.util.ArrayList;
+import java.util.UUID;
+
 import org.example.desafiopicpay.core.entity.Funcionario;
 import org.example.desafiopicpay.infrastructure.request.RegisterRequest;
 import org.example.desafiopicpay.infrastructure.request.UpdateFullRequest;
 import org.example.desafiopicpay.infrastructure.request.UpdatePartialRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/funcionario")
@@ -104,9 +113,26 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionario);
     }
 
+    @GetMapping("/{id}/aceitar")
+    public ResponseEntity<Funcionario> aceitar(@PathVariable UUID id){
+        Funcionario funcionario = null;
+        for (Funcionario f : lista) {
+            if (f.getId().equals(id)) {
+                funcionario = f;
+            }
+        }
+
+        if (funcionario == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        funcionario.aceitar();
+
+        return ResponseEntity.ok(funcionario);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable UUID id){
         lista.removeIf(f -> f.getId().equals(id));
     }
-
 }
